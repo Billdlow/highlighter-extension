@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Highlighter Notes — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Settings</h1>
+
+    <section class="card">
+      <h2>Connect Notion</h2>
+      <p class="hint">
+        1. Go to
+        <a href="https://www.notion.so/my-integrations" target="_blank">notion.so/my-integrations</a>
+        and create a new Integration, then copy the "Internal Integration Secret".<br />
+        2. In Notion, create a Database, then use the "⋯" menu → "Connections" to add the integration you just created.<br />
+        3. Copy the database URL and paste it below (or paste the database ID directly).
+      </p>
+
+      <label>Integration Secret</label>
+      <input type="password" id="notionToken" placeholder="secret_xxxxxxxxxxxxxxxx" />
+
+      <label>Database URL or ID</label>
+      <input type="text" id="notionDatabaseId" placeholder="Paste your Notion database URL or ID" />
+
+      <p class="hint">
+        The database's property <em>types</em> (not names) decide where each piece of data goes: a "Title" property stores the text, a "URL" property stores the source link, a "Select" property stores the topic, "Text" properties store the thought and page title, and a "Date" property stores the time.
+      </p>
+
+      <button id="saveNotion" class="btn-primary">Save Notion Settings</button>
+      <span id="notionStatus" class="status"></span>
+    </section>
+
+    <section class="card">
+      <h2>AI Knowledge Graph</h2>
+      <p class="hint">
+        Automatically analyzes your saved highlights into a four-category structure: "Prerequisite / Core / Use Cases / Extensions". Requires your own AI API key (the extension does not cover this cost for you).
+      </p>
+
+      <label>AI Provider</label>
+      <select id="aiProvider">
+        <option value="anthropic">Anthropic Claude</option>
+        <option value="openai">OpenAI</option>
+      </select>
+
+      <label>API Key</label>
+      <input type="password" id="aiApiKey" placeholder="Paste your API key" />
+
+      <button id="saveAi" class="btn-primary">Save AI Settings</button>
+      <span id="aiStatus" class="status"></span>
+    </section>
+
+    <section class="card">
+      <h2>Read-Aloud Voice</h2>
+      <p class="hint">
+        Read-aloud uses the voice packs already installed on your computer — naturalness varies a lot between voices. Pick one here that sounds less robotic (free, no key needed).
+      </p>
+      <label>Choose voice</label>
+      <select id="ttsVoice">
+        <option value="">System default (auto-picked by content language)</option>
+      </select>
+
+      <label>Speed: <span id="ttsRateLabel">0.9x</span></label>
+      <input type="range" id="ttsRate" min="0.5" max="1.5" step="0.1" value="0.9" style="width: 100%;" />
+
+      <button id="ttsPreview" class="btn-primary" style="margin-top: 10px;">Preview</button>
+      <span id="ttsStatus" class="status"></span>
+    </section>
+
+    <section class="card">
+      <h2>Topics</h2>
+      <p class="hint">Manage your custom topics here — pick them directly while highlighting.</p>
+      <div class="theme-add">
+        <input type="text" id="newTheme" placeholder="New topic name" />
+        <button id="addThemeBtn">Add</button>
+      </div>
+      <ul id="themeList" class="theme-list"></ul>
+    </section>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

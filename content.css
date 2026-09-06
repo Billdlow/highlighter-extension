@@ -1,0 +1,413 @@
+.hltr-toolbar {
+  position: absolute;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #262624;
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  transform: translate(-50%, -100%);
+  margin-top: -10px;
+}
+
+.hltr-toolbar::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: #262624 transparent transparent transparent;
+}
+
+.hltr-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.hltr-swatch:hover {
+  transform: scale(1.15);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.hltr-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 2px;
+}
+
+.hltr-copy-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+  transition: background 0.12s ease;
+}
+
+.hltr-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hltr-mark {
+  border-radius: 2px;
+  padding: 1px 0;
+  cursor: pointer;
+  transition: filter 0.1s ease;
+}
+
+.hltr-mark:hover {
+  filter: brightness(0.92);
+}
+
+.hltr-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background: #262624;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  z-index: 2147483647;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.hltr-toast.hltr-toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+.hltr-note-popup {
+  position: absolute;
+  z-index: 2147483647;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  width: 260px;
+}
+
+.hltr-composer-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #262624;
+  margin-bottom: 6px;
+}
+
+.hltr-theme-row {
+  margin-top: 6px;
+}
+
+.hltr-theme-select {
+  width: 100%;
+  border: 1px solid #e0ddd4;
+  border-radius: 6px;
+  padding: 5px 6px;
+  font-size: 12.5px;
+  font-family: inherit;
+  background: #fff;
+  outline: none;
+}
+
+.hltr-theme-select:focus {
+  border-color: #d97757;
+}
+
+.hltr-theme-new-input {
+  width: 100%;
+  border: 1px solid #d97757;
+  border-radius: 6px;
+  padding: 5px 6px;
+  font-size: 12.5px;
+  font-family: inherit;
+  margin-top: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.hltr-shot-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.hltr-shot-btn {
+  flex: 1;
+  border: 1px solid #e0ddd4;
+  background: #fff;
+  color: #262624;
+  border-radius: 6px;
+  padding: 8px 4px;
+  font-size: 17px;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.hltr-shot-btn:hover {
+  background: #f4f1ea;
+}
+
+.hltr-shot-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.hltr-shot-preview-wrap {
+  margin-top: 8px;
+}
+
+.hltr-shot-preview {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.hltr-shot-remove {
+  width: 100%;
+  border: none;
+  background: #f1efe8;
+  color: #a32d2d;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 11.5px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.hltr-composer-hidden {
+  display: none !important;
+}
+
+.hltr-selector-imgwrap {
+  cursor: crosshair;
+}
+
+.hltr-selector-box {
+  position: absolute;
+  border: 2px solid #fff28a;
+  background: rgba(255, 242, 138, 0.12);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
+.hltr-note-popup textarea {
+  width: 100%;
+  min-height: 56px;
+  border: 1px solid #e0ddd4;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.hltr-note-popup textarea:focus {
+  border-color: #d97757;
+}
+
+.hltr-note-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.hltr-speak-btn {
+  margin-right: auto;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.hltr-note-actions button {
+  border: none;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.hltr-note-save {
+  background: #262624;
+  color: #fff;
+}
+
+.hltr-note-cancel {
+  background: #f1efe8;
+  color: #262624;
+}
+
+.hltr-editor-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.hltr-editor-card {
+  background: #262624;
+  border-radius: 12px;
+  padding: 12px;
+  max-width: min(720px, 92vw);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.hltr-editor-hint {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  text-align: center;
+}
+
+.hltr-editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hltr-editor-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 0;
+}
+
+.hltr-editor-swatch.hltr-editor-active {
+  border-color: #fff;
+}
+
+.hltr-editor-tool-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.hltr-editor-tool-btn.hltr-editor-active {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.hltr-editor-spacer {
+  flex: 1;
+}
+
+.hltr-editor-skip,
+.hltr-editor-done {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.hltr-editor-skip {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.hltr-editor-done {
+  background: #fff28a;
+  color: #262624;
+  font-weight: 600;
+}
+
+.hltr-editor-imgwrap {
+  position: relative;
+  overflow: auto;
+  border-radius: 8px;
+  line-height: 0;
+  cursor: crosshair;
+}
+
+.hltr-editor-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.hltr-editor-mark-preview {
+  position: absolute;
+  opacity: 0.4;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.hltr-editor-note {
+  position: absolute;
+  width: 150px;
+  background: #fff28a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 6px;
+}
+
+.hltr-editor-note textarea {
+  width: 100%;
+  min-height: 60px;
+  border: none;
+  background: transparent;
+  resize: vertical;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  color: #262624;
+}
+
+.hltr-editor-note-del {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: #262624;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+}

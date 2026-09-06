@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Knowledge Graph</title>
+  <link rel="stylesheet" href="graph.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="ghdr">
+      <div>
+        <h1>Knowledge Graph</h1>
+        <p id="meta" class="ghint">Not generated yet</p>
+      </div>
+      <div class="controls">
+        <select id="themeFilter">
+          <option value="">All topics</option>
+        </select>
+        <button id="generateBtn" class="btn-primary">Generate Knowledge Graph</button>
+      </div>
+    </header>
+
+    <div id="status" class="status-box" hidden></div>
+
+    <div id="columns" class="columns" hidden>
+      <div class="column" data-key="prerequisite">
+        <h2>Prerequisite Knowledge</h2>
+        <p class="col-desc">Background you should ideally know before these highlights</p>
+        <div class="col-list" id="col-prerequisite"></div>
+      </div>
+      <div class="column" data-key="core">
+        <h2>Core Concepts</h2>
+        <p class="col-desc">The most essential ideas among these highlights</p>
+        <div class="col-list" id="col-core"></div>
+      </div>
+      <div class="column" data-key="useCases">
+        <h2>Use Cases</h2>
+        <p class="col-desc">Concrete applications and implementations</p>
+        <div class="col-list" id="col-useCases"></div>
+      </div>
+      <div class="column" data-key="extensions">
+        <h2>Extensions</h2>
+        <p class="col-desc">Related topics worth exploring further</p>
+        <div class="col-list" id="col-extensions"></div>
+      </div>
+    </div>
+
+    <div id="empty" class="empty">
+      <p>Pick a topic (or leave it as all) and press "Generate Knowledge Graph" to start.</p>
+      <p class="ghint">Requires an AI API key set on the Options page first.</p>
+    </div>
+  </div>
+
+  <script src="graph.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Highlighter Notes</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="hdr">
+    <h1>My Highlights</h1>
+    <div class="hdr-right">
+      <span class="count" id="count">0</span>
+      <button id="settingsBtn" class="icon-btn" title="Settings">⚙</button>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="Search highlights or sites" />
+    <select id="themeFilter">
+      <option value="">All topics</option>
+    </select>
+  </div>
+
+  <div class="graph-entry">
+    <button id="openGraph" class="btn-graph">Knowledge Graph (Prerequisite / Core / Use Cases / Extensions)</button>
+  </div>
+
+  <div id="list" class="list"></div>
+
+  <div id="empty" class="empty" hidden>
+    <p>No highlights yet</p>
+    <p class="hint">Select text on any page to see the highlight toolbar</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

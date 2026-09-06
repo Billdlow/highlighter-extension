@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f1ea;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #262624;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+
+.ghdr {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0 0 4px;
+}
+
+.ghint {
+  font-size: 12.5px;
+  color: #8a8778;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+#themeFilter {
+  border: 1px solid #e0ddd4;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.btn-primary {
+  background: #262624;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.status-box {
+  background: #fff;
+  border: 1px solid #e8e5db;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.status-box.error {
+  color: #a32d2d;
+  border-color: #f0c9c9;
+  background: #fcebeb;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.column {
+  background: #fff;
+  border: 1px solid #e8e5db;
+  border-radius: 12px;
+  padding: 14px 14px 16px;
+  min-height: 200px;
+}
+
+.column h2 {
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+.col-desc {
+  font-size: 11.5px;
+  color: #8a8778;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.col-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.node {
+  background: #f4f1ea;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.node-text {
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0 0 4px;
+}
+
+.node-reason {
+  font-size: 11px;
+  color: #b45c34;
+  margin: 0 0 4px;
+}
+
+.node-source {
+  font-size: 10.5px;
+  color: #8a8778;
+}
+
+.node-source a {
+  color: #8a8778;
+  text-decoration: none;
+}
+
+.node-source a:hover {
+  text-decoration: underline;
+}
+
+.col-empty {
+  font-size: 11.5px;
+  color: #b4b2a9;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #8a8778;
+}
+
+.empty p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
