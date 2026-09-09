@@ -3,14 +3,12 @@ const dbInput = document.getElementById("notionDatabaseId");
 const saveBtn = document.getElementById("saveNotion");
 const statusEl = document.getElementById("notionStatus");
 
-const aiProviderEl = document.getElementById("aiProvider");
-const aiApiKeyEl = document.getElementById("aiApiKey");
-const saveAiBtn = document.getElementById("saveAi");
-const aiStatusEl = document.getElementById("aiStatus");
-
 const newThemeInput = document.getElementById("newTheme");
 const addThemeBtn = document.getElementById("addThemeBtn");
 const themeListEl = document.getElementById("themeList");
+
+// AI Knowledge Graph settings are hidden for now (see options.html) —
+// no aiProvider/aiApiKey fields are read or written here in this build.
 
 function loadSettings() {
   chrome.storage.local.get(
@@ -18,16 +16,12 @@ function loadSettings() {
       notionToken: "",
       notionDatabaseId: "",
       themes: [],
-      aiProvider: "anthropic",
-      aiApiKey: "",
       ttsVoiceURI: "",
       ttsRate: 0.9,
     },
     (data) => {
       tokenInput.value = data.notionToken;
       dbInput.value = data.notionDatabaseId;
-      aiProviderEl.value = data.aiProvider;
-      aiApiKeyEl.value = data.aiApiKey;
       renderThemes(data.themes);
       ttsVoiceEl.dataset.savedUri = data.ttsVoiceURI;
       loadVoiceOptions();
@@ -36,16 +30,6 @@ function loadSettings() {
     }
   );
 }
-
-saveAiBtn.addEventListener("click", () => {
-  chrome.storage.local.set(
-    { aiProvider: aiProviderEl.value, aiApiKey: aiApiKeyEl.value.trim() },
-    () => {
-      aiStatusEl.textContent = "Saved";
-      setTimeout(() => (aiStatusEl.textContent = ""), 2000);
-    }
-  );
-});
 
 const ttsVoiceEl = document.getElementById("ttsVoice");
 const ttsPreviewBtn = document.getElementById("ttsPreview");

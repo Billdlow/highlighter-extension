@@ -11,9 +11,8 @@ settingsBtn.addEventListener("click", () => {
   chrome.runtime.openOptionsPage();
 });
 
-document.getElementById("openGraph").addEventListener("click", () => {
-  chrome.tabs.create({ url: chrome.runtime.getURL("graph.html") });
-});
+// Knowledge Graph entry hidden for now — button removed from popup.html,
+// so no listener is bound here. Re-add when the feature is re-enabled.
 
 function load() {
   chrome.storage.local.get({ highlights: [] }, (data) => {
